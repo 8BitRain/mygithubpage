@@ -56,7 +56,8 @@
       float: left;
       margin: 0 auto;
       /*width: 80%;*/
-      border: 1px solid white;
+      /*border: 1px solid white;*/
+      height: 30vw;
     }
 
     #header
@@ -71,6 +72,8 @@
       /*width: 40%;*/
       font-size: 5em;
       /*border: 1px solid white;*/
+      height: 100%;
+      padding-left: 0;
     }
 
     #names ul li
@@ -81,6 +84,8 @@
     #info
     {
       font-size: 1.5vw;
+      height: 100%;
+      padding-right: 0;
     }
 
     .invert
@@ -97,16 +102,20 @@
       <div id='row'>
         <div id='names'>
           <div class='invert' id='header'>
-            black lives matter
+            <a target='_blank' href='https://twitter.com/hashtag/blacklivesmatter/'>
+              black lives matter
+            </a>
           </div>
           <ul id='names_list'></ul>
         </div>
         <div id='info'>
-          <span class='invert'>December 14, 2014</span>
-          <br>
-          <span class='invert'>5 pm</span>
-          <br>
-          <span class='invert'>Top of Bascom Hill, Madison, WI, USA</span>
+          <a class='invert' target='_blank' href='https://www.facebook.com/events/310873035768951/'>
+            December 14, 2014
+            <br>
+            5 pm
+            <br>
+            Top of Bascom Hill, Madison, WI, USA
+          </a>
 
           <p>
           The stress of finals has swept campus, libraries are packed with
@@ -126,22 +135,36 @@
         </div>
       </div>
     </div>
-    <br>
-    &nbsp;
-    <br>
     <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
     <script>
       $(document).ready (
         function () {
-          var i = 5;
+          var i = 7;
           var people = [
-            { name:'Eric Garner', link:null },
-            { name:'Tamir Rice', link: 'http://example.com' },
-            { name:'Michael Brown', link: null },
-            { name:'Tarika Wilson', link: null },
-            { name: 'John Crawford III', link: null },
-            { name: 'Trayvon Martin', link: null },
-            { name: 'VonDerrit Meyers Jr', link: null }
+            { name: 'Eric Garner',          link: null },
+            { name: 'Tamir Rice',           link: null },
+            { name: 'Michael Brown',        link: null },
+            { name: 'Tarika Wilson',        link: null },
+            { name: 'John Crawford III',    link: null },
+            { name: 'Trayvon Martin',       link: null },
+            { name: 'VonDerrit Meyers Jr',  link: null },
+            { name: 'Reneisha Mcbride',     link: null },
+            { name: 'Yvette Smith',         link: null },
+            { name: 'Ezell Ford',           link: null },
+            { name: 'Aiyana Stanley-Jones', link: null },
+            { name: 'Shareese Francis',     link: null },
+            { name: 'Reika Boyd',           link: null },
+            { name: 'Tyisha Miller',        link: null },
+            { name: 'Ervin Jefferson',      link: null },
+            { name: 'Shantel Davis',        link: null },
+            { name: 'Amadou Diallo',        link: null },
+            { name: 'Sean Bell',            link: null },
+            { name: 'Orlando Barlow',       link: null },
+            { name: 'James Brissette',      link: null },
+            { name: 'Ronald Madison',       link: null },
+            { name: 'Rumain Brisbon',       link: null },
+            { name: 'Tyree Woodson',        link: null },
+            { name: 'Kimani Gray',          link: null }
           ];
           var nameBox  = $('#names');
           var nameList = nameBox.find('ul');
