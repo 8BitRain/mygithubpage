@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Die-In, Dec 14, Bascom Hill</title>
+  </head>
+  <style>
+    body
+    {
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      margin: 0 auto;
+    }
+
+    a
+    {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover
+    {
+      color: red;
+    }
+
+    span
+    {
+      color: red;
+    }
+
+    ul
+    {
+      list-style-type: none;
+      margin-top: 0;
+      padding-left: 0;
+    }
+
+    div
+    {
+      padding: 0 2vw 2vw 2vw;
+    }
+
+    .container
+    {
+      margin: 0 auto;
+    }
+
+    #title
+    {
+      align: center;
+      font-size: 10vw;
+    }
+
+    #row
+    {
+      float: left;
+      margin: 0 auto;
+      /*width: 80%;*/
+      border: 1px solid white;
+    }
+
+    #header
+    {
+      padding: 0;
+      text-decoration: underline;
+    }
+
+    #names
+    {
+      float: left;
+      /*width: 40%;*/
+      font-size: 5em;
+      /*border: 1px solid white;*/
+    }
+
+    #names ul li
+    {
+      font-size: 75%;
+    }
+
+    #info
+    {
+      font-size: 1.5vw;
+    }
+
+    .invert
+    {
+      color: black;
+      background-color: white;
+    }
+  </style>
+  <body>
+    <div id='container'>
+      <div id='title'>
+        Die-In Demonstration
+      </div>
+      <div id='row'>
+        <div id='names'>
+          <div class='invert' id='header'>
+            black lives matter
+          </div>
+          <ul id='names_list'></ul>
+        </div>
+        <div id='info'>
+          <span class='invert'>December 14, 2014</span>
+          <br>
+          <span class='invert'>5 pm</span>
+          <br>
+          <span class='invert'>Top of Bascom Hill, Madison, WI, USA</span>
+
+          <p>
+          The stress of finals has swept campus, libraries are packed with
+          hard working students, professors' inboxes are filling with questions,
+          and for many, these are the primary worries, but life is <span class='invert'>NOT normal</span>.
+          </p>
+          <p>
+          Join us as we march from Bascom Hill to the academic heart of campus,
+          College Library.
+          </p>
+
+          <p>
+          Bring signs, bring bodies, and bring your stories. Once inside of the library,
+          this will become a largely silent demonstration; largely, but not entirely,
+          because we will make our presence known intermittently for those who have bad memory.
+          <p>
+        </div>
+      </div>
+    </div>
+    <br>
+    &nbsp;
+    <br>
+    <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script>
+      $(document).ready (
+        function () {
+          var i = 5;
+          var people = [
+            { name:'Eric Garner', link:null },
+            { name:'Tamir Rice', link: 'http://example.com' },
+            { name:'Michael Brown', link: null },
+            { name:'Tarika Wilson', link: null },
+            { name: 'John Crawford III', link: null },
+            { name: 'Trayvon Martin', link: null },
+            { name: 'VonDerrit Meyers Jr', link: null }
+          ];
+          var nameBox  = $('#names');
+          var nameList = nameBox.find('ul');
+          var delay = 5000; //in ms
+
+          function listify (person) {
+            if (!person.link)
+            {
+              return ('<li>' + person.name + '</li>');
+            }
+            else
+            {
+              return ('<li class="invert"><a href="' + person.link + '">' + person.name + '</a></li>');
+            }
+          }
+
+          for (var j = 0; j < i; j++) {
+            nameList.append(listify(people[j]));
+          }
+
+          window.setInterval (
+            function () {
+              nameList.children('li').first().remove();
+              /*.fadeOut(
+                function () {
+                  $(this).remove();
+                }
+              );
+              */
+              var index = i % people.length;
+              nameList.append(listify(people[index]));
+              i++;
+            }, delay
+          );
+        }
+      );
+    </script>
+  </body>
+</html>
