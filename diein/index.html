@@ -9,6 +9,7 @@
       background-color: black;
       color: white;
       font-family: monospace;
+      font-size: 5vw;
       margin: 0 auto;
     }
 
@@ -31,61 +32,48 @@
     ul
     {
       list-style-type: none;
-      margin-top: 0;
       padding-left: 0;
     }
 
     div
     {
-      padding: 0 2vw 2vw 2vw;
     }
 
     .container
     {
-      margin: 0 auto;
+    }
+
+    .col
+    {
     }
 
     #title
     {
-      align: center;
-      font-size: 10vw;
     }
 
     #row
     {
-      float: left;
-      margin: 0 auto;
-      /*width: 80%;*/
-      /*border: 1px solid white;*/
-      height: 30vw;
     }
 
     #header
     {
-      padding: 0;
       text-decoration: underline;
     }
 
     #names
     {
-      float: left;
-      /*width: 40%;*/
-      font-size: 5em;
-      /*border: 1px solid white;*/
-      height: 100%;
-      padding-left: 0;
+      /*font-size: 1.5vw;*/
     }
 
     #names ul li
     {
-      font-size: 75%;
+      /*font-size: 75%;*/
     }
 
     #info
     {
-      font-size: 1.5vw;
+      /*font-size: 1.5vw;*/
       height: 100%;
-      padding-right: 0;
     }
 
     .invert
@@ -93,6 +81,23 @@
       color: black;
       background-color: white;
     }
+
+    /*
+    @media (max-width: 800px)
+    {
+      .col
+      {
+        width: 100%;
+        float: none;
+        clear: none;
+      }
+
+      body
+      {
+        font-size: 1.5em;
+      }
+    }
+    */
   </style>
   <body>
     <div id='container'>
@@ -100,7 +105,7 @@
         Die-In Demonstration
       </div>
       <div id='row'>
-        <div id='names'>
+        <div id='names' class='col'>
           <div class='invert' id='header'>
             <a target='_blank' href='https://twitter.com/hashtag/blacklivesmatter/'>
               black lives matter
@@ -108,7 +113,7 @@
           </div>
           <ul id='names_list'></ul>
         </div>
-        <div id='info'>
+        <div id='info' class='col'>
           <a class='invert' target='_blank' href='https://www.facebook.com/events/310873035768951/'>
             December 14, 2014
             <br>
@@ -144,7 +149,7 @@
             { name: 'Eric Garner',          link: null },
             { name: 'Tamir Rice',           link: null },
             { name: 'Michael Brown',        link: null },
-            { name: 'Tarika Wilson',        link: null },
+            { name: 'Tarika Wilson',        link: 'http://example.com' },
             { name: 'John Crawford III',    link: null },
             { name: 'Trayvon Martin',       link: null },
             { name: 'VonDerrit Meyers Jr',  link: null },
@@ -188,12 +193,6 @@
           window.setInterval (
             function () {
               nameList.children('li').first().remove();
-              /*.fadeOut(
-                function () {
-                  $(this).remove();
-                }
-              );
-              */
               var index = i % people.length;
               nameList.append(listify(people[index]));
               i++;
